@@ -87,6 +87,7 @@ map <C-t><right> :tabn<cr>
 map <C-n> :call NERDToggle()<cr>
 map <C-N> :call NERDToggle()<cr>
 
+
 map <C-B> :BufExplorer<cr>
 map <C-b> :BufExplorer<cr>
 
