@@ -55,6 +55,8 @@ let mapleader = "-" "My <leader> Key
 "set nofoldenable "No Fold in files
 "let NERDTreeChDirMode=2 " Refresh NERD
 
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS "Autocomplete CSS
+
 set autoread "Refresh vim files
 
 "Support for JS6 (ES6)
@@ -65,6 +67,8 @@ let NERDTreeShowHidden=1
 
 let NERDTreeWinSize =35 "Resize window to N%
 set showtabline=0 "Show all Tabs
+
+set wrap linebreak nolist
 
 " #######################
 " ###### SHORTCUTS ######
@@ -87,7 +91,6 @@ map <C-t><right> :tabn<cr>
 map <C-n> :call NERDToggle()<cr>
 map <C-N> :call NERDToggle()<cr>
 
-
 map <C-B> :BufExplorer<cr>
 map <C-b> :BufExplorer<cr>
 
@@ -96,12 +99,15 @@ map <C-X>  :BClose<cr>
 
 " Open .vimrc ~/.vim_runtime/my_configs.vim
 :nnoremap <leader>, :vsplit ~/.vim_runtime/my_configs.vim<cr>
-":nnoremap <leader>, :vsplit ~/.vim_runtime/my_configs.vim<cr>
+
 "Refresh NERD
 :nmap <leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 :nmap <leader>R :NERDTreeFocus<cr>R<c-w><c-p>
 
 nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":FZF\<cr>"
+
+"Remove highlight selection
+nnoremap <esc><esc> :noh<return> 
 
 "#########################################
 "############### VIM THEMES ##############
@@ -151,6 +157,17 @@ colorscheme PaperColor
 "################################
 "######## PLUGINS ###############
 "################################
+" Vin-airline Status Bar of vim
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline#extensions#tabline#enabled = 1 " Add Smarter tab line
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#bufferline#enabled = 1
+" The comunity say that this line resolve the issue with Airline with change of buffer...
+let g:airline_exclude_preview = 0
+
 " Markdown Plugin
 "Plugin 'godlygeek/tabular'
 "Plugin 'plasticboy/vim-markdown'
@@ -196,14 +213,6 @@ let g:html_indent_style1 = "inc"
 "Vim-css-color
 Plugin 'ap/vim-css-color'
 
-" Vin-airline Status Bar of vim
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-let g:airline#extensions#tabline#enabled = 1 " Add Smarter tab line
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'default'
-let g:airline#extensions#bufferline#enabled = 1
 
 " Icons
 Plugin 'ryanoasis/vim-devicons'
@@ -248,8 +257,10 @@ let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
 " Plugin with "Gitgutter" 
 Plugin 'airblade/vim-gitgutter'
 
-"" FZF
-"" Plugin 'junegunn/fzf'
+" FZF
+Plugin 'junegunn/fzf'
+set rtp+=/usr/local/opt/fzf
+
 "
 "" Show changes in the file
 ""Plugin 'jmcantrell/vim-diffchanges'
