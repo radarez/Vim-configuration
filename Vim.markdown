@@ -31,6 +31,7 @@ gg	    |   Go to End of the Document
 w	    |	Desplazamiento una palabra a la DERECHA
 b	    |	Desplazamiento una palabra a la IZQUIERDA
 0	    |	Nos lleva hasta el inicio de la línea actual
+o       |   Enter in INSERT mode
 $	    |	Nos lleva hasta el final de la línea actual
 Ctrl+B  |	Función similar a Repag.
 Ctrl+F  |	Función similar a Avpag.
@@ -39,15 +40,18 @@ I	    |	Comienza a INTRODUCIR texto al INICIO de la LÍNEA donde se encuentra el
 O       |   Inserta una línea en blanco ANTES de la línea actual
 o       |   Inserta una línea en blanco DESPUES de la línea actual
 R       |   SOBRESCRIBE desde la posición actual del cursor
-x       |   Borra el carácter de la actual posición del cursor
-X       |   Borra el carácter siguiente a la actual posición del cursor
+x       |   BORRA el carácter de la actual posición del cursor
+X       |   BORRA el carácter siguiente a la actual posición del cursor
 dd      |   CORTA la línea actual (disponible en el portapapeles)
-D o d$  |   CORTA DESDE la POSICIÓN actual del cursor hasta el final de la línea
+
+D o d$  |   CORTA DESDE la POSICIÓN actual del cursor hasta el FINAL de la línea
+d0      |   CORTA DESDE la POSICIÓN actual del cursor hasta el INICIO la línea
+
 yy o Y  |   COPIA al completD la línea donde se encuentra el cursor
 yX      |   Copia tantos caracteres desde la posición del cursor, como le pasemos sustituyendo X por un número que estimemos necesario.
 P       |   PEGA en la LÍNEA PREVIA a la que nos encontremos el contenido del portapapeles
 p       |   PEGA en la LÍNEA SIGUIENTE a la que nos encontremos el contenido del portapapeles
-.       |   REPITE el último comando     
+.       |   REPITE el último comando
 u       |   Deshace el último comando
 U       |   DESHACE el ÚLTIMO COMANDO aplicado a la LÍNEA donde se encuentre el cursor
 n       |   Encuentra la siguiente coincidencia en una búsqueda
@@ -106,6 +110,7 @@ cd inside NERDTree = :cd ...
 :set nolist = remove character $
 
 //##### FZF #####
+A
 git banch | fzf = list the branches
 git checkout $(git branch | fzf) = Add filter in list of branches 
 
@@ -117,3 +122,13 @@ qx            # start recording to register x
 q             # stop recording
 @x            # playback to see if it works correctly
 999@x         # repeat 999 times to complete the job
+
+//##### GIT #####
+//GV.VIM Plugin
+:GV to open commit browser
+You can pass git log options to the command, e.g. :GV -S foobar.
+:GV! will only list commits that affected the current file
+:GV? fills the location list with the revisions of the current file
+:GV or :GV? can be used in visual mode to track the changes in the selected lines.
+q = exit GV
+

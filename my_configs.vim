@@ -15,6 +15,9 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
+"Git Commit browser
+Plugin 'junegunn/gv.vim'
+
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -134,16 +137,12 @@ Plugin 'rakr/vim-one'
 " NORD VIM
 Plugin 'arcticicestudio/nord-vim'
 
-
 " Tomorrow-Night 
 Plugin 'chriskempson/base16-vim'
 
-"Solarized
-
 " Ayu
 Plugin 'ayu-theme/ayu-vim'
-set termguicolors     " enable true colors support
-"let ayucolor="light"  " for light version of theme
+""let ayucolor="light"  " for light version of theme
 "let ayucolor="dark"   " for dark version of theme
 let ayucolor="mirage" " for mirage version of theme
 " colorscheme ayu
