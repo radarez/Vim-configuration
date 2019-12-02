@@ -21,6 +21,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 #### Online Tutorial install GESTOR DE MÓDULOS DE VIM
 [Online Tutorial](https://voragine.net/linux/instalar-vundle-gestor-modulos-vim)
 
+
 ### Commands VIM
 |COMMANDOS                     | USO
 :NerdTree                      | Launch the Tree of Files
@@ -72,7 +73,9 @@ N                              | Encuentra la COINCIDENCIA ANTERIOR en una BÚSQ
 :wq o x! o ZZ                  | GUARDA los CAMBIOS en el archivo actual y SALE de Vi / Vim.
 :r! ‘Comando’                  | EJECUTA un comando en la consola del sistema e INSERTA la salida de dicho comando en el FICHERO actual, desde la posición del cursor
 :colorscheme spacegray         | Change Color Schema
+
 1 Ctrl+g                       | SHOW the PATH file
+
 :set syntax=php                | Forcinf Syntax Coloring
 :noh                           | Unselect words highlighting
 V                              | Select the complete line
@@ -81,11 +84,16 @@ g* or g#                       | if you DON'T want to search for the EXACT WORD.
 :AirlineTheme [name_theme]     | Change the theme for the status bar of Airline
 yy                             | (Magic yank) Paste the line whitout return
 
-Vi}                            | Select the content that inside of {}
+Vi}                            | Select the content that is inside of {}
 <VISUAL-LINE>/patter_word ↵    | Select the the content inside block code, "n" for jump to next block 
 
-<VISUAL>:Tabularize /character | Tablarize the select text
-<VISUAL>:Tabularize /:zs       | Tablarize the select text but not move the : character
+<VISUAL>:Tabularize /character | Tabularising the selecting text
+<VISUAL>:Tabularize /:zs       | Tabularising the selecting text but not move the : character
+
+diw                            | Delete inside WORD
+dw                             | Delete from cursor cursor to the end of the WORD
+dt<char>                       | Deletetes from cursor to the specific character
+"+y OR "*y                     | Paste text in extern applications
 
 //##### SEARCH OPTIONS #####
 [Search Options](https://vim.fandom.com/wiki/Search_and_replace)

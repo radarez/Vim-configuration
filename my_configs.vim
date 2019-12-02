@@ -243,8 +243,8 @@ let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
 Plugin 'airblade/vim-gitgutter'
 
 "***** ZF *****
-"Plugin 'junegunn/fzf' 
-"set rtp+=/usr/local/opt/fzf
+Plugin 'junegunn/fzf' 
+set rtp+=/usr/local/opt/fzf
 
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
