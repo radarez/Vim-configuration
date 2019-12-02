@@ -54,63 +54,48 @@ filetype plugin indent on    " required
 set nomagic 
 set guifont=HackNerdFontComplete-Regular:h13
 set linespace=10 "Space between lines
-let mapleader = "-" "My <leader> Key
+set showtabline=0 "Show all Tabs
+set wrap linebreak nolist "Wrap text
+set autoread "Refresh vim files
 "set nofoldenable "No Fold in files
+
+let NERDTreeShowHidden=1 "Show Hidden Files NERDTree
+let NERDTreeWinSize =35 "Resize window to N%
+let mapleader = "-" "My <leader> Key
 "let NERDTreeChDirMode=2 " Refresh NERD
 
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS "Autocomplete CSS
+augroup filetype javascript syntax=javascript "Support for JS6 (ES6)
 
-set autoread "Refresh vim files
-
-"Support for JS6 (ES6)
-augroup filetype javascript syntax=javascript
-
-"Show Hidden Files NERDTree
-let NERDTreeShowHidden=1
-
-let NERDTreeWinSize =35 "Resize window to N%
-set showtabline=0 "Show all Tabs
-
-set wrap linebreak nolist
-
-" #######################
-" ###### SHORTCUTS ######
-"########################
+"########################i###
+"####### KEY SHORTCUTS ######
+"############################
 " KeyBindings
-map <C-t><up> :tabr<cr>
-map <C-t><down> :tabl<cr>
-map <C-t><left> :tabp<cr>
-map <C-t><right> :tabn<cr>
+:function NERDToggle()
+    :NERDTreeToggle
+    :vertical resize 32 
+:endfunction
 
 :nnoremap <C-n> :bnext<CR>
 :nnoremap <C-p> :bprevious<CR>
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
+:nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":FZF\<cr>"  "FZF inside NERDTree
+:nnoremap <esc><esc> :noh<return> "Remove highlight selection
+:nnoremap <leader>, :vsplit ~/.vim_runtime/my_configs.vim<cr> " Open .vimrc ~/.vim_runtime/my_configs.vim
+:nmap <leader>r :NERDTreeFocus<cr>R<c-w><c-p> "Refresh NERD
+:nmap <leader>R :NERDTreeFocus<cr>R<c-w><c-p> "Refresh NERD
 
-:function NERDToggle()
-    :NERDTreeToggle
-    :vertical resize 32 
-:endfunction
 map <C-n> :call NERDToggle()<cr>
 map <C-N> :call NERDToggle()<cr>
-
 map <C-B> :BufExplorer<cr>
 map <C-b> :BufExplorer<cr>
-
 map <C-x>  :BClose<cr> 
 map <C-X>  :BClose<cr> 
-
-" Open .vimrc ~/.vim_runtime/my_configs.vim
-:nnoremap <leader>, :vsplit ~/.vim_runtime/my_configs.vim<cr>
-
-"Refresh NERD
-:nmap <leader>r :NERDTreeFocus<cr>R<c-w><c-p>
-:nmap <leader>R :NERDTreeFocus<cr>R<c-w><c-p>
-
-nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":FZF\<cr>"
-
-"Remove highlight selection
-nnoremap <esc><esc> :noh<return> 
+map <C-t><up> :tabr<cr>
+map <C-t><down> :tabl<cr>
+map <C-t><left> :tabp<cr>
+map <C-t><right> :tabn<cr>
 
 "#########################################
 "############### VIM THEMES ##############
@@ -118,40 +103,41 @@ nnoremap <esc><esc> :noh<return>
 "Theme for Airline
 au VimEnter * exec 'AirlineTheme atomic'
 
-" Theme SpaceGray
+Plugin 'ajh17/spacegray.vim' " Theme SpaceGray
 let g:spacegray_underline_search = 1
 let g:spacegray_use_italics = 1
-"let g:spacegray_low_contrast = 1
-Plugin 'ajh17/spacegray.vim'
+let g:spacegray_low_contrast = 1
 
-"Command for activate theme: colorscheme spacegray
-Plugin 'kien/ctrlp.vim'
+Plugin 'doums/darcula' "Darcula theme Activate theme: colorscheme darcula
 
-"Darcula theme Activate theme: colorscheme darcula
-Plugin 'doums/darcula'
-
-"Vim-One
-Plugin 'rakr/vim-one'
+Plugin 'rakr/vim-one' "One 
 "colorscheme one 
 
-" NORD VIM
-Plugin 'arcticicestudio/nord-vim'
+Plugin 'arcticicestudio/nord-vim' " NORD VIM
 
-" Tomorrow-Night 
-Plugin 'chriskempson/base16-vim'
+Plugin 'chriskempson/base16-vim' " Tomorrow-Night 
 
-" Ayu
-Plugin 'ayu-theme/ayu-vim'
+Plugin 'ayu-theme/ayu-vim' 
 ""let ayucolor="light"  " for light version of theme
 "let ayucolor="dark"   " for dark version of theme
 let ayucolor="mirage" " for mirage version of theme
 " colorscheme ayu
 
-" PaperColor
-Plugin 'NLKNguyen/papercolor-theme'
-set background=light
+Plugin 'sainnhe/vim-color-forest-night' "Forest Night
+let g:airline_theme = 'forest_night'
+"let g:lightline = {'colorscheme' : 'forest_night'} " LIGHT THEME
+colorscheme forest-night  
+
+Plugin 'ajmwagar/vim-deus' "Deus
+
+Plugin 'loumiakas/moonlight-vim' "Solarized
 "set background=dark
-colorscheme PaperColor
+
+Plugin 'NLKNguyen/papercolor-theme' "PaperColor
+"set background=light
+"set background=dark
+"let g:airline_theme='papercolor'
+"colorscheme PaperColor
 
 "################################
 "######## PLUGINS ###############
@@ -168,8 +154,8 @@ let g:airline#extensions#bufferline#enabled = 1
 let g:airline_exclude_preview = 0
 
 " Markdown Plugin
-"Plugin 'godlygeek/tabular'
-"Plugin 'plasticboy/vim-markdown'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 "YOUCOMPLETEME
 "Plugin 'valloric/youcompleteme'
@@ -197,7 +183,9 @@ let g:NERDTreeWinPos = "left"
 Plugin 'loremipsum'
 
 " Multiple Corsors
-Plugin 'terryma/vim-multiple-cursors'
+call plug#begin()
+Plug 'terryma/vim-multiple-cursors'
+call plug#end()
 
 " Emmet-vim
 Plugin 'mattn/emmet-vim'
@@ -256,11 +244,10 @@ let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
 " Plugin with "Gitgutter" 
 Plugin 'airblade/vim-gitgutter'
 
-" FZF
-Plugin 'junegunn/fzf'
+"***** ZF *****
+Plugin 'junegunn/fzf' 
 set rtp+=/usr/local/opt/fzf
 
-"
 "" Show changes in the file
 ""Plugin 'jmcantrell/vim-diffchanges'
 "
