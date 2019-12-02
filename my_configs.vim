@@ -88,8 +88,8 @@ augroup filetype javascript syntax=javascript "Support for JS6 (ES6)
 
 map <C-n> :call NERDToggle()<cr>
 map <C-N> :call NERDToggle()<cr>
-map <C-B> :BufExplorer<cr>
-map <C-b> :BufExplorer<cr>
+map <C-B> :Buffers<cr>
+map <C-b> :Buffers<cr>
 map <C-x>  :BClose<cr> 
 map <C-X>  :BClose<cr> 
 map <C-t><up> :tabr<cr>
@@ -111,7 +111,6 @@ let g:spacegray_low_contrast = 1
 Plugin 'doums/darcula' "Darcula theme Activate theme: colorscheme darcula
 
 Plugin 'rakr/vim-one' "One 
-"colorscheme one 
 
 Plugin 'arcticicestudio/nord-vim' " NORD VIM
 
@@ -121,7 +120,6 @@ Plugin 'ayu-theme/ayu-vim'
 ""let ayucolor="light"  " for light version of theme
 "let ayucolor="dark"   " for dark version of theme
 let ayucolor="mirage" " for mirage version of theme
-" colorscheme ayu
 
 Plugin 'sainnhe/vim-color-forest-night' "Forest Night
 let g:airline_theme = 'forest_night'
@@ -245,9 +243,11 @@ let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
 Plugin 'airblade/vim-gitgutter'
 
 "***** ZF *****
-Plugin 'junegunn/fzf' 
-set rtp+=/usr/local/opt/fzf
+"Plugin 'junegunn/fzf' 
+"set rtp+=/usr/local/opt/fzf
 
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 "" Show changes in the file
 ""Plugin 'jmcantrell/vim-diffchanges'
 "

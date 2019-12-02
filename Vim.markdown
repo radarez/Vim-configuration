@@ -80,10 +80,12 @@ g* or g#                       | if you DON'T want to search for the EXACT WORD.
 :colorscheme <C>+<d>           | List the color schemes
 :AirlineTheme [name_theme]     | Change the theme for the status bar of Airline
 yy                             | (Magic yank) Paste the line whitout return
+
 Vi}                            | Select the content that inside of {}
+<VISUAL-LINE>/patter_word ↵    | Select the the content inside block code, "n" for jump to next block 
+
 <VISUAL>:Tabularize /character | Tablarize the select text
 <VISUAL>:Tabularize /:zs       | Tablarize the select text but not move the : character
-
 
 //##### SEARCH OPTIONS #####
 [Search Options](https://vim.fandom.com/wiki/Search_and_replace)
@@ -169,4 +171,8 @@ You can pass git log options to the command, e.g. :GV -S foobar.
 |Command | Description
 <C-b> | show a list of buffers
 q     | Exti of list buffers
+
+//##### BOOKMARKS #####
+|Command | Description
+ma | Show all Marks
 
