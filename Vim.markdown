@@ -174,5 +174,5 @@ q     | Exti of list buffers
 
 //##### BOOKMARKS #####
 |Command | Description
-ma | Show all Marks
+ma | Show all Mark  
 
